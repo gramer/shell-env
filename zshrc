@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 DEFAULT_USER="coupang"
 
-export PATH="/usr/local/Cellar/oclint/bin:/Users/coupang/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/coupang/.rbenv/shims:/usr/local/Cellar/oclint/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -119,23 +119,12 @@ export PATH="/usr/local/Cellar/oclint/bin:/Users/coupang/.rbenv/shims:/usr/bin:/
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-###########################################################
-# Environment Variables
-###########################################################
-PATH=~/.rbenv/shims:$PATH
-export PATH GROOVY_HOME
-
-OCLINT_HOME=/usr/local/Cellar/oclint
-export PATH=$OCLINT_HOME/bin:$PATH
 
 ###########################################################
 # Applicatino Optinos
 ###########################################################
 #inint maven
 export MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'
-
-#init ruby version
-rbenv global 2.1.2
 
 # Execute Shells
 source /usr/local/Cellar/autojump/21.7.1/etc/autojump.sh
