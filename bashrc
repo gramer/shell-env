@@ -58,13 +58,11 @@ rbenv global 2.1.2
 source /usr/local/Cellar/autojump/21.7.1/etc/autojump.sh
 
 # TODO 개행문자 처리 후 적용
-#FILES=`find $CONF_BASE/env/env_* -maxdepth 1 -type f -exec echo {} \;`
-#for FILE in ${FILES[@]}
-#do
-#  source $FILE
-#done;
+for FILE ($CONF_BASE/env/env_*) {
+  source $FILE
+}
 
-source $CONF_BASE/env/env_sonar
-source $CONF_BASE/env/env_groovy
+# source $CONF_BASE/env/env_sonar
+# source $CONF_BASE/env/env_groovy
 
 
