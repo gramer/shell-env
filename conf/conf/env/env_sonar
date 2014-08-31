@@ -1,6 +1,0 @@
-#!/bin/sh
-# .bash_profile
-
-#SONAR
-export SONARQUBE_HOME=$BASE/program/sonarqube
-export PATH=$SONARQUBE_HOME/bin/macosx-universal-64:$PATH
