@@ -1,0 +1,6 @@
+#!/bin/sh
+# .bash_profile
+
+# GROOVY
+export GROOVY_HOME=$BASE/program/groovy
+export PATH=$GROOVY_HOME/bin/:$PATH

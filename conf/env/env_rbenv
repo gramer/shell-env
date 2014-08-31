@@ -1,0 +1,9 @@
+#!/bin/sh
+# .bash_profile
+
+# rbenv
+PATH=~/.rbenv/shims:$PATH
+export PATH
+
+#init ruby version
+rbenv global 2.1.2
