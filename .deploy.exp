@@ -1,0 +1,19 @@
+# script file: ssl_login.exp
+set timeout 1
+# spawn ssh process
+spawn ssh zeno@deploy
+# to accept RSA key automatically, set StrictHostKeyChecking=no
+# spawn ssh -o StrictHostKeyChecking=no john@192.168.0.10
+# wait for password request
+expect -nocase "password"
+# send password (\r is for return key)
+send "password"
+# wait for shell prompt
+expect "zeno@deploy:~$"
+# exit
+send "su -l coupang\r"
+expect -nocase "password"
+send "password"
+#expect "coupang@deploy:~$"
+interact
+#send "exit\r"
