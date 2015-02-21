@@ -1,9 +1,12 @@
 #!/bin/zsh
+###########################################################
+# git ignore
+###########################################################
 
 ############################################################
 ## User specific aliases and functions
 ############################################################
-export BASE=/zeno
+export BASE=/pang
 export PROGRAM_BASE=$BASE/program
 export SERVICE_BASE=$BASE/service
 export SCRIPTS_BASE=$BASE/scripts
@@ -17,6 +20,7 @@ export DATA_BASE=$BASE/data
 #export TERM="xterm-color"
 #export CLICOLOR=1
 #export LSCOLORS=GxFxCxDxBxegedabagaced
+export TERM=xterm-256color
 
 ###########################################################
 # Alias
@@ -35,6 +39,9 @@ alias la='ls -A'
 alias c='clear'
 alias sb="source ~/.zshrc"
 alias grep='grep --color=auto'
+alias tf='tail -f $LOGS_BASE/catalina_logs/catalina.out'
+alias t='tree'
+alias lg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -92,7 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 DEFAULT_USER="coupang"
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
+#export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
+export PATH="/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:$SCRIPTS_BASE:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -125,16 +133,33 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
 ###########################################################
 #inint maven
 export MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'
+export GRADLE_OPTS='-Xmx1024m -XX:MaxPermSize=256m'
 
 # Execute Shells
 source /usr/local/Cellar/autojump/21.7.1/etc/autojump.sh
 
 ###########################################################
-# Enviroment Optinos
+# Enviroment Application Optinos
 ###########################################################
-for FILE ($CONF_BASE/env/env_*) {
+for FILE ($CONF_BASE/env/bash_*) {
   source $FILE
 }
 
-# source $CONF_BASE/env/env_sonar
-# source $CONF_BASE/env/env_groovy
+###########################################################
+# Powershell 
+###########################################################
+if [[ -r /usr/local/Cellar/python/2.7.8/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    source /usr/local/Cellar/python/2.7.8/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
+
+###########################################################
+# git ignore
+###########################################################
+#function gi() { curl -s http://www.gitignore.io/api/ ;}
+
+
+###########################################################
+# python environment
+###########################################################
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+

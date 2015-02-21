@@ -16,6 +16,17 @@ fi
 # export CLICOLOR=1
 # export LSCOLORS=GxFxCxDxBxegedabagaced
 
+############################################################
+## User specific aliases and functions
+############################################################
+export BASE=/pang
+export PROGRAM_BASE=$BASE/program
+export SERVICE_BASE=$BASE/service
+export SCRIPTS_BASE=$BASE/scripts
+export CONF_BASE=$BASE/conf
+export LOGS_BASE=$BASE/logs
+export DATA_BASE=$BASE/data
+
 ###########################################################
 # Alias
 ###########################################################
@@ -41,9 +52,11 @@ alias grep='grep --color=auto'
 export MAVEN_OPTS='-Xmx512m -XX:MaxPermSize=128m'
 
 # Execute Shells
-source /usr/local/Cellar/autojump/21.7.1/etc/autojump.sh
+# source /usr/local/Cellar/autojump/21.7.1/etc/autojump.sh
 
-# 개행문자 처리 후 적용
-for FILE ($CONF_BASE/env/env_*) {
+FILES=`find $CONF_BASE/env/bash_* -maxdepth 1 -type f -exec echo {} \;`
+ 
+for FILE in $CONF_BASE/env/bash_*
+do
   source $FILE
-}
+done
